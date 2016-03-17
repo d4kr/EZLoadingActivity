@@ -60,6 +60,15 @@ public struct EZLoadingActivity {
         return true
     }
     
+    public static func updateText(text: String)  -> Bool {
+        guard instance != nil else {
+            print("EZLoadingActivity: You need an instance to update the text.")
+            return false
+        }
+        instance?.textLabel.text = text
+        return true
+    }
+    
     public static func showWithDelay(text: String, disableUI: Bool, seconds: Double) -> Bool {
         let showValue = show(text, disableUI: disableUI)
         delay(seconds) { () -> () in
